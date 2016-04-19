@@ -1,13 +1,27 @@
 
 <!DOCTYPE HTML>
-<?php session_start();?>
+<?php include 'connect.php';
+	session_start();
+?>
 <html>
 	<head>
 		<title>Dr.Droid</title>
 		<link href="css/style.css" rel="stylesheet" type="text/css"  media="all" />
 		
 		<link rel="stylesheet" href="css/responsiveslides.css">
-		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="js/responsiveslides.min.js"></script>
+		  <script>
+		    // You can also use "$(window).load(function() {"
+			    $(function () {
+			
+			      // Slideshow 1
+			      $("#slider1").responsiveSlides({
+			        maxwidth: 1600,
+			        speed: 600
+			      });
+			});
+		  </script>
 		 
 	</head>
 	<body>
@@ -38,20 +52,32 @@
 		</div>
 		<div class="clear"> </div>
 			<!--start-image-slider---->
-					<center><img src="images/slider-image1.jpg" alt=""></center>
+					<center><div class="image-slider">
+						<!-- Slideshow 1 --><center>
+					    <ul class="rslides" id="slider1">
+					      <li><img src="images/slider-image1.jpg" alt="" height="42" width="42"></li>
+					      <li><img src="images/slider-image2.jpg" alt="" height="42" width="42"></li>
+					      <li><img src="images/slider-image1.jpg" alt="" height="42" width="42"></li>
+					    </ul></center>
+						 <!-- Slideshow 2 -->
+					</div></center>
 					<!--End-image-slider---->
 		    <div class="clear"> </div>
 		    <div class="content-grids">
 		    	<div class="wrap">
 		    	<div class="section group">
 				<div class="listview_1_of_3 images_1_of_3">
-					<div class="listimg listimg_1_of_2">
+					<div class="listing listing_1_of_2">
 						  <img src="images/grid-img1.png">
 					</div>
 					<div class="text list_1_of_2">
-						  <h3>Doctors <?php if(isset($_SESSION['signed_in'])&&$_SESSION['signed_in'] == true){ echo 'Logout';}else{echo 'Login';} ?> </h3>
 						 
-						  <div class="button"><span><a id='logindiv' href="<?php if(isset($_SESSION['signed_in'])&&$_SESSION['signed_in'] == true){ echo 'logout.php';}else{echo 'login.php';} ?>"><?php if(isset($_SESSION['signed_in'])&&$_SESSION['signed_in'] == true){ echo 'Logout';}else{echo 'Login';} ?></a></span></div>
+						 <?php if($_SESSION['signed_in'] == false)
+									echo "<h3>Login</h3>"; 
+								else
+									echo "<h3>Logout</h3>"?>
+						 
+						  <div class="button"><span><a id='logindiv' href="<?php if($_SESSION['signed_in'] == true){ echo 'logout.php';}else{echo 'login.php';} ?>"><?php if($_SESSION['signed_in'] == true){ echo '<h1>Logout</h1>';}else{echo 'Login';} ?></a></span></div>
 					</div>
 				</div>				
 				<div class="listview_1_of_3 images_1_of_3">
@@ -60,7 +86,6 @@
 					</div>
 					<div class="text list_1_of_2">
 						  <h3>Dashboard</h3>
-						  
 						  <div class="button"><span><a href="dashboard.php">Dashboard</a></span></div>
 				     </div>
 				</div>				

@@ -10,9 +10,7 @@ if(!$conn)
 {
  	exit('Error: could not establish database connection');
 }
-else
-{
-	echo 'Connection successfull';
-}
+else if(!(mysqli_select_db(mysqli_connect($server, $username, $password,$database),$database)))
+	exit('Error: could not select database');
 
 ?>
