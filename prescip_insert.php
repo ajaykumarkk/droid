@@ -57,7 +57,7 @@ session_start();
 			$sql="SELECT * FROM `user` WHERE `Usr_id` = '$patid'";
 			$result = mysqli_query($conn,$sql);
 			$patp = mysqli_fetch_array($result);
-			$username=$patp['User_name'];
+			$username=$patp['Name'];
 			$age=$patp['Age'];
 			$sex=$patp['Sex'];
 			include('C:\\wamp\\www\\droid\\phpqrcode\\qrlib.php'); 
