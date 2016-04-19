@@ -1,0 +1,8 @@
+got html
+	front end
+	
+	register and login -> need a new errors page // rather than page -> ( widget / sidebar kinda thing )
+	
+	redirect registered users to -> aizaz's page ( this has the list of places and details about them )
+	
+	redirect login users to -> plan a trip page ( this has the functionality of planning a trip ggwp )
